@@ -1,18 +1,29 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+
+// images
+import Logo from "../../assets/Images/groot.png";
+
+// styles
 import './styles.css';
-import Logo from "../../assets/images/groot.png";
-import api from "../../services/api";
-import { login, logout } from "../../services/auth";
 import {
-  FormControl,
   Placeholder,
   Notification,
-  Button
+  Button,
+  Alert,
 } from 'rsuite';
+
+// Component
+import Header from '../../components/Header';
+
+// services
+import api from "../../services/Api";
+import { login, logout } from "../../services/Auth";
+import { validateMandatoryValues } from "../../services/Validate";
+
 const { Paragraph } = Placeholder;
 
-function open(funcName, description) {
+function openNotification(funcName, description) {
   Notification[funcName]({
     title: funcName,
     description:
@@ -22,7 +33,7 @@ function open(funcName, description) {
         <Paragraph style={{ width: 280 }} rows={1} />
       </div>
   });
-}
+};
 
 class SignIn extends Component {
   state = {
@@ -33,49 +44,67 @@ class SignIn extends Component {
   handleSignIn = async e => {
     e.preventDefault();
     const { email, password } = this.state;
-    if (!email || !password) {
-      open('warning', 'Preencha e-mail e senha para continuar!');
-    } else {
-      try {
-        const response = await api.post("auth/authenticate", { email, password });
-        login(response.data);
-        open('success', 'Ola User!');
-        this.props.history.push("/app");
-      } catch (err) {
-        console.log(err)
-        open('error', `Erro ao realizar login!`)
-      }
+    const validateData = [
+      {
+        value: email,
+        mensage: 'Informe seu E-mail'
+      },
+      {
+        value: password,
+        mensage: 'Informe sua senha'
+      }]
+
+    const itemData = await validateMandatoryValues(validateData);
+    if (itemData) {
+      Alert.warning(`${itemData.mensage}`);
+      // openNotification('warning', `${itemData.mensage}`);
+      return false;
     }
+
+    try {
+      const response = await api.post('auth/authenticate', {
+        email,
+        password
+      });
+      login(response.data);
+      Alert.success('Bem-Vindo!');
+      // openNotification('success', 'Bem-Vindo!');
+      this.props.history.push("/app");
+    } catch (err) {
+      Alert.error('Erro ao realizar login!');
+      // openNotification('error', `Erro ao realizar login!`)
+    };
   };
 
   render() {
     logout();
     return (
-      <container className="div-form">
-        <form
-          className='form-signin'
-          onSubmit={this.handleSignIn}>
-          <img src={Logo} alt="Airbnb logo" />
-          <input
-            placeholder="Default Input"
-            name="email"
-            type="email"
-            onChange={e => this.setState({ email: e.target.value })}
-          />
-          <input
-            class='input-signin'
-            placeholder="Default Input"
-            name="password"
-            type="password"
-            onChange={e => this.setState({ password: e.target.value })}
-          />
-          <Button appearance="primary" type="submit">
-            Submit
-          </Button>
-          <hr />
-          <Link to="/signup">Criar conta grátis</Link>
-        </form>
-      </container>
+      <div>
+        <Header />
+        <div className="div-form">
+          <form
+            className='form-signin'
+            onSubmit={this.handleSignIn}>
+            <img src={Logo} alt="Groothublogo" />
+            <input
+              placeholder="E-mail"
+              name="email"
+              type="email"
+              onChange={e => this.setState({ email: e.target.value })}
+            />
+            <input
+              className='input-signin'
+              placeholder="Password"
+              name="password"
+              type="password"
+              onChange={e => this.setState({ password: e.target.value })}
+            />
+            <Button appearance="primary" type="submit">Submit</Button>
+            <hr />
+            <Link to="/signup">Criar conta grátis</Link>
+          </form>
+        </div>
+      </div>
     );
   }
 }

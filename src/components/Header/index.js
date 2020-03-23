@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import '../styles/css/header.css';
+import './styles.css';
 
-import logo from '../assets/images/marvel.svg';
-import user from '../assets/images/user.svg';
+import logo from '../../assets/Images/marvel.svg';
+import user from '../../assets/Images/user.svg';
 
 class Header extends Component {
 	state = {

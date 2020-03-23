@@ -1,0 +1,60 @@
+#post-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#post-list .feed {
+  flex-grow: 1;
+  margin: 20px;
+  width: 350px;
+  min-width: 333px;
+  max-width: 410px;
+  height: 360px;
+  border-radius: 4px;
+  color: #f5f5f5;
+  background-color: #62686d;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+#post-list .feed .header {
+  height: 40px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+#post-list .feed .header span {
+  margin: 8px;
+}
+#post-list .feed .header img {
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+}
+#post-list .feed .midiun {
+  height: 255px;
+  background: #fff;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#post-list .feed .midiun img {
+  width: 100%;
+  height: 100%;
+}
+
+#post-list .feed .footer {
+  padding: 14px;
+  justify-content: space-between;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#post-list .feed .footer img {
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+}

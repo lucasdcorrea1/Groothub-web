@@ -2,7 +2,9 @@ div .form-signup {
 	display: flex;
 	align-items: center;
     justify-content: center;
-    height: 440px;
+	height: 440px;
+	margin-top: 60px;
+	border-radius: 10px;
 }
 .form-signup {
 	margin: 0 auto;

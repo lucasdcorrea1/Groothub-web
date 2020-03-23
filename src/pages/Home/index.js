@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
+// Component
 import Header from '../../components/Header';
-import FeedGithub from '../../components/feedGithub';
+import FeedGroothub from '../../components/FeedGroothub';
+import UserInfo from '../../components/UserInfo';
 
 class Home extends Component {
   state = {
-    feedGithub: [],
+    feedGroothub: [],
     password: "",
     error: ""
   };
@@ -14,8 +16,9 @@ class Home extends Component {
   render() {
     return (
       <section>
-        {/* <Header/> */}
-        <FeedGithub/>
+        <Header/>
+        <UserInfo/>
+        <FeedGroothub/>
       </section>
     );
   }

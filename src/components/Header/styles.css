@@ -1,7 +1,7 @@
 header#main-header {
-    background: #fff;
+    background: #292c2f;
     height: 54px;
-    border-bottom: 1px solid #DDD;
+    border-bottom: 1px solid #62686d;
 }
 
 header#main-header .header-content {
@@ -13,8 +13,6 @@ header#main-header .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-     
- 
 }
 
 header#main-header img {

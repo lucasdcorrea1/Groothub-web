@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 
-class FeedGithub extends Component {
+class UserInfo extends Component {
 	state = {
-		feedGithub: []
+	
 	};
 	render() {
 		return (
 			<div>
-                <h1>Feed</h1>
+				<h1>User Info</h1>
+				<hr/>
 			</div>
 		);
 	}
 };
 
-export default FeedGithub;
+export default UserInfo;

@@ -1,8 +1,9 @@
 import axios from "axios";
-import { getToken } from "./auth";
+import { getToken } from "./Auth";
 
 const api = axios.create({
-  baseURL: "https://datatongji-backend.herokuapp.com"
+  // baseURL: "https://datatongji-backend.herokuapp.com"
+  baseURL: "https://api.github.com/"
 });
 
 api.interceptors.request.use(async config => {
