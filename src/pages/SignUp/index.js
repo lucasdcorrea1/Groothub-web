@@ -11,7 +11,7 @@ import './styles.css';
 
 // services
 import api from "../../services/Api.js";
-import { validateMandatoryValues } from "../../services/Validate.js";
+import validate from '../../services/Validate.js';
 
 import {
   Placeholder,
@@ -57,7 +57,7 @@ class SignUp extends Component {
         mensage: 'Informe sua senha'
       }];
 
-    const itemData = await validateMandatoryValues(validateData);
+    const itemData = await validate.validateMandatoryValues(validateData);
     if (itemData) {
       Alert.warning(`${itemData.mensage}`);
       // openNotification('warning', `${itemData.mensage}`);

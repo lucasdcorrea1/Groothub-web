@@ -19,7 +19,7 @@ import Header from '../../components/Header';
 // services
 import api from "../../services/Api.js";
 import { login, logout } from "../../services/Auth.js";
-import { validateMandatoryValues } from "../../services/Validate.js";
+import validate from "../../services/Validate.js";
 
 const { Paragraph } = Placeholder;
 
@@ -54,7 +54,7 @@ class SignIn extends Component {
         mensage: 'Informe sua senha'
       }]
 
-    const itemData = await validateMandatoryValues(validateData);
+    const itemData = await validate.validateMandatoryValues(validateData);
     if (itemData) {
       Alert.warning(`${itemData.mensage}`);
       // openNotification('warning', `${itemData.mensage}`);
