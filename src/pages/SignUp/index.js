@@ -10,8 +10,8 @@ import Logo from "../../assets/Images/groot.png";
 import './styles.css';
 
 // services
-import api from "../../services/Api.js";
-import validate from '../../services/Validate.js';
+import api from "../../services/Api";
+import validate from '../../services/Validate';
 
 import {
   Placeholder,

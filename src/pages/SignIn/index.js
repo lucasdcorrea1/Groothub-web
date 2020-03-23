@@ -17,9 +17,9 @@ import {
 import Header from '../../components/Header';
 
 // services
-import api from "../../services/Api.js";
-import { login, logout } from "../../services/Auth.js";
-import validate from "../../services/Validate.js";
+import api from "../../services/Api";
+import { login, logout } from "../../services/Auth";
+import validate from "../../services/Validate";
 
 const { Paragraph } = Placeholder;
 
