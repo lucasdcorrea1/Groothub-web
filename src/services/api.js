@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getToken } from "./Auth";
+import { getToken } from "./Auth.js";
 
 const api = axios.create({
   // baseURL: "https://datatongji-backend.herokuapp.com"

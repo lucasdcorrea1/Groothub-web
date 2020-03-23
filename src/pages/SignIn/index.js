@@ -17,9 +17,9 @@ import {
 import Header from '../../components/Header';
 
 // services
-import api from "../../services/Api";
-import { login, logout } from "../../services/Auth";
-import { validateMandatoryValues } from "../../services/Validate";
+import api from "../../services/Api.js";
+import { login, logout } from "../../services/Auth.js";
+import { validateMandatoryValues } from "../../services/Validate.js";
 
 const { Paragraph } = Placeholder;
 
@@ -62,7 +62,7 @@ class SignIn extends Component {
     }
 
     try {
-      const response = await api.post('auth/authenticate', {
+      const response = await api.post('auth/Auth.jsenticate', {
         email,
         password
       });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 
-import api from '../../services/Api'
+import api from '../../services/Api.js'
 import shareIcon from '../../assets/Images/share.svg';
 
 import {

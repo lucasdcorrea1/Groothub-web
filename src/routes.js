@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import { isAuthenticated } from "./services/Auth";
+import { isAuthenticated } from "./services/Auth.js";
 import Footer from './components/Footer';
 
 
